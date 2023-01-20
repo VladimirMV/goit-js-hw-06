@@ -13,37 +13,37 @@ const images = [
   },
 ];
 
-
 const ulEl = document.querySelector('ul');
  
-for (let i = 0; i < images.length; i += 1) {
-  let liEl = document.createElement('li');
-  let imgEl = document.createElement('img');
-  imgEl.src = images[i].url;
-  imgEl.alt = images[i].alt;
+const liEls = images.map(item => {
+  const liEl = document.createElement('li');
+  liEl.classList.add('item');
+  liEl.insertAdjacentHTML('afterbegin',`<img src = "${item.url} "alt = "${item.alt}">`)
+  return liEl;
+});
 
-   liEl.appendChild(imgEl);
-
-  ulEl.appendChild(liEl);
-}
+ulEl.append(...liEls);
 console.log(ulEl);
 
 
 
+ //Вариант без insertAdjacentHTML()
+// const ulEl = document.querySelector('ul');
+ 
+// const liEls = images.map(item => {
+//   const liEl = document.createElement('li');
+//   liEl.classList.add('item');
+//   const imgEl = document.createElement('img');
+//   imgEl.src = item.url;
+//   imgEl.alt = item.alt;
+//   liEl.append(imgEl);
+ 
+//   return liEl;
+// });
+
+// ulEl.append(...liEls);
+
+// console.log(ulEl);
 
 
-
-
-// Напиши скрипт для создания галереи изображений 
-// по массиву данных. В HTML есть список ul.gallery.
-
-// <ul class="gallery"></ul>
-
-// Используй массив объектов images для создания
-//  элементов <img> вложенных в <li>. 
-//  Для создания разметки используй шаблонные строки и метод insertAdjacentHTML().
-
-// Все элементы галереи должны добавляться в DOM 
-// за одну операцию вставки.
-// Добавь минимальное оформление галереи 
-// флексбоксами или гридами через CSS классы.
+  
