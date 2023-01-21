@@ -18,7 +18,7 @@ const ulEl = document.querySelector('ul');
 const liEls = images.map(item => {
   const liEl = document.createElement('li');
   liEl.classList.add('item');
-  liEl.insertAdjacentHTML('afterbegin',`<img src = "${item.url} "alt = "${item.alt}">`)
+  liEl.insertAdjacentHTML('afterbegin',`<img src = "${item.url} "alt = "${item.alt}" width=600 px >`)
   return liEl;
 });
 
@@ -28,6 +28,7 @@ console.log(ulEl);
 
 
  //Вариант без insertAdjacentHTML()
+ 
 // const ulEl = document.querySelector('ul');
  
 // const liEls = images.map(item => {
